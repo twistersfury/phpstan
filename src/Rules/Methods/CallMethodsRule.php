@@ -91,6 +91,10 @@ class CallMethodsRule implements \PHPStan\Rules\Rule
 				}
 			}
 
+			if ($scope->isInClosureBind()) {
+				return [];
+			}
+
 			return [
 				sprintf(
 					'Call to an undefined method %s::%s().',
